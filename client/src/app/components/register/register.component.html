@@ -1,3 +1,31 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <div class="sign-up-form mat-elevation-z4" [formGroup]="authService.signupForm">
+    <h2 class="mat-h2">Register</h2>
+      <mat-form-field class="field-width">
+        <input matInput type="text" placeholder="Full Name" formControlName="name" required>
+        <mat-error>Full name is mandatory</mat-error>
+      </mat-form-field>
+      <mat-form-field class="field-width">
+        <input matInput type="text" placeholder="Username" formControlName="username" required>
+        <mat-error>Username is mandatory</mat-error>
+      </mat-form-field>
+    <mat-form-field class="field-width">
+      <input matInput type="email" placeholder="Email" formControlName="email" required>
+      <mat-error *ngIf="authService.signupForm.controls['email'].errors?.required">Email is mandatory.</mat-error>
+      <mat-error *ngIf="authService.signupForm.controls['email'].errors?.pattern">invalid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-width">
+      <input matInput type="password" placeholder="Password" formControlName="password" required matInput>
+      <mat-error>Password is mandatory</mat-error>
+    </mat-form-field>
+    <mat-form-field class="field-width">
+      <input matInput type="password" placeholder="Confirm password" formControlName="confirm_password" required matInput>
+      <mat-error>Confirm password required</mat-error>
+    </mat-form-field>
+    <button mat-raised-button class="field-width" color="primary" type="submit" (click)="registerUser(authService.signupForm.value)"
+      [disabled]="authService.signupForm.invalid">Register</button>
+   <div class="link">
+      <a href="/login">Login if Already registered.</a>
+    </div>
+  </div>
+</div>

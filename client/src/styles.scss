@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+// start custom theming
+@import "~@angular/material/theming";
+@include mat-core();
+$demo-app-primary: mat-palette($mat-purple, 700);
+$demo-app-accent: mat-palette($mat-light-blue, 700);
+$demo-app-warn: mat-palette($mat-red, 700);
+$demo-custom-theme: mat-light-theme($demo-app-primary, $demo-app-accent, $demo-app-warn);
+$primary: mat-color($demo-app-primary);
+$accent: mat-color($demo-app-accent);
+$warn: mat-color($demo-app-warn);
+.demo-custom-theme {
+    @include angular-material-theme($demo-custom-theme);
+}
+// End of custom theming
+
+.container {
+    width: 92%;
+    padding: 2%;
+    margin: 2%;
+}

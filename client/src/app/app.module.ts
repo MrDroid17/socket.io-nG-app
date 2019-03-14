@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthService } from './service/auth.service';
+import { ValidationService } from './service/validation.service';
+import { NotificationService } from './service/notification.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -47,7 +49,11 @@ const routes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    ValidationService,
+    NotificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
