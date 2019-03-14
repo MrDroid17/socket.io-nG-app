@@ -20,7 +20,7 @@ router.post('/api/register', (req, res, next) =>{
         if(err){
             res.json({success: false, msg: 'Failed to register user'});
         }else{
-            res.json({success: true, msg: 'user registered.'});
+            res.json({success: true, msg: 'User registered.'});
         }
     });
 });
@@ -61,7 +61,7 @@ router.post('/api/authenticate', (req, res, next) =>{
 });
 
 // get profile
-router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) =>{
+router.get('/api/profile', passport.authenticate('jwt', {session: false}), (req, res, next) =>{
     res.json({user: req.user}); 
 });
 

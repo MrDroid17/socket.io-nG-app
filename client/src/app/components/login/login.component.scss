@@ -1,0 +1,35 @@
+$accent: #0288d1; // light blue
+
+.container {
+  margin: 0 auto;
+  margin: 0;
+  padding-top: 10vh;
+  height: 83vh;
+  width: 96%;
+  background: $accent;
+}
+.login-form {
+  background: white;
+  margin: 0 auto;
+  width: 280px;
+  padding: 20px;
+  & h2,h5, .link {
+    text-align: center;
+  }
+  & a:link{
+    font-size: 14px;
+  }
+  & .field-width{
+    width: 100%;
+  }
+}
+// for mobile screen
+@media (max-width: 360px) {
+  .login-form {
+    margin: 0 auto;
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+

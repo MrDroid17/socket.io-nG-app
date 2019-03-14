@@ -32,9 +32,9 @@ export class AuthService {
   /***
    * urls
    */
-  LOGIN_URL: string = environment.serverUrl + '/api/login';
-  REGISTER_URL: string = environment.serverUrl + '/api/register';
-  GET_USER_PROFILE_URL: string = environment.serverUrl + '/api/profile';
+  LOGIN_URL: string = environment.serverUrl + '/users/api/authenticate';
+  REGISTER_URL: string = environment.serverUrl + '/users/api/register';
+  GET_USER_PROFILE_URL: string = environment.serverUrl + '/users/api/profile';
 
   constructor(
     private http: Http
@@ -90,10 +90,13 @@ export class AuthService {
     return this.http.post(this.REGISTER_URL, user, { headers: headers }).pipe(map(res => res.json()));
   }
 
-  getProfile(id) {
+  getProfile() {
+    this.loadToken();
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.get(this.GET_USER_PROFILE_URL + id, { headers: headers }).pipe(map(res => res.json()));
+    headers.append('Authorization', this.access_token);
+    debugger
+    return this.http.get(this.GET_USER_PROFILE_URL, { headers: headers }).pipe(map(res => res.json()));
   }
 
 }

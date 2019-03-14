@@ -28,6 +28,6 @@ app.use('/users', users);
 app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 });
-app.listen(7001, () => {
-    console.log(`Server started at port 7001`);
+app.listen(8000, () => {
+    console.log(`Server started at port 8000`);
 });

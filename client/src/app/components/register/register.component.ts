@@ -25,14 +25,15 @@ export class RegisterComponent implements OnInit {
     if (!this.validationService.matchPassword(user['password'], user['confirm_password'])) {
       this.notificationService.error('Failed', 'Password do not match');
     } else {
-
       this.authService.userRegister(user).subscribe(res => {
-        if (res['id']) {
+        if (res['success']) {
           this.notificationService.success('Success', 'User Registered.');
           this.router.navigate(['login']);
+        } else {
+          this.notificationService.success('Failed', res['msg']);
         }
       }, error => {
-        this.notificationService.error('Failed', `Error-code: ${error['status']}` + '\n Email id already exist.');
+        this.notificationService.error('Failed', error['message']);
       });
     }
   }
