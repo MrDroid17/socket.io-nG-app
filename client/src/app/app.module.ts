@@ -21,7 +21,7 @@ import { NotificationService } from './service/notification.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'sign-up', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', component: ProfileComponent },
   { path: 'profile', component: ProfileComponent },
 ];

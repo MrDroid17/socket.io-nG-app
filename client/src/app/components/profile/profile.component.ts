@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
 
-    if(!localStorage.getItem('access_token')){
+    if (!localStorage.getItem('access_token')){
       this.router.navigate(['login']);
     }
 
@@ -42,7 +42,6 @@ export class ProfileComponent implements OnInit {
       } else {
         this.notificationService.error('Failed', 'Error getting user info');
       }
-
     });
   }
 }
