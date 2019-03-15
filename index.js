@@ -36,11 +36,10 @@ let server = app.listen(8000, () => {
 // Socket connection
 let io = socket(server);
 io.on('connection', (socket) => {
-    console.log('connected to socket at http://localhost:4000 with id ', socket.id);
+    console.log('connected to socket at http://localhost:8000 with id ', socket.id);
     /**
      * get emitted data 
      */
-
     socket.on('chat', (data) => {
         io.sockets.emit('chat', data);
     })

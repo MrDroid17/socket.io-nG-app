@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
       if (res['success']) {
         this.user = res['user'];
         this.authService.storeAdminData(res['token']);
-        debugger
         this.notificationService.success('Success', 'Login successfull.');
         this.router.navigate(['profile']);
       } else {
