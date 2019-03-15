@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverUrl: 'http://ng-socket.fun4tastic.tk'
+  serverUrl: 'http://socket.io-nG.fun4tastic.tk'
 };
