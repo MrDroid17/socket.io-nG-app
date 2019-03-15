@@ -42,19 +42,16 @@ export class AuthService {
 
 
   // store admin data to local storage
-  storeAdminData(access_token, user_id) {
+  storeAdminData(access_token) {
     localStorage.setItem('access_token', access_token);
-    localStorage.setItem('user_id', user_id);
   }
 
   // load token
   private loadToken() {
     if (localStorage.getItem('access_token') !== null) {
       this.access_token = localStorage.getItem('access_token');
-      this.user_id = localStorage.getItem('user_id');
     } else {
       this.access_token = '';
-      this.user_id = '';
     }
   }
 
@@ -95,7 +92,6 @@ export class AuthService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Authorization', this.access_token);
-    debugger
     return this.http.get(this.GET_USER_PROFILE_URL, { headers: headers }).pipe(map(res => res.json()));
   }
 

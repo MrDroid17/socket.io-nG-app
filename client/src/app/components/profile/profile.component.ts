@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/interface/user';
 import { NotificationService } from 'src/app/service/notification.service';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +21,10 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    if(!localStorage.getItem('access_token')){
+      this.router.navigate(['login']);
+    }
 
     this.getProfile();
   }
